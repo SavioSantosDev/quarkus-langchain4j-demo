@@ -48,9 +48,24 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-mailer</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-websockets-next</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.quarkiverse.langchain4j</groupId>
+            <artifactId>quarkus-langchain4j-core</artifactId>
+            <version>0.14.2</version>
         </dependency>
         <dependency>
             <groupId>io.quarkiverse.langchain4j</groupId>
@@ -58,14 +73,16 @@
             <version>0.15.0</version>
         </dependency>
         <dependency>
+            <groupId>io.quarkiverse.langchain4j</groupId>
+            <artifactId>quarkus-langchain4j-easy-rag</artifactId>
+            <version>0.14.2</version>
+        </dependency>
+        <dependency>
             <groupId>dev.langchain4j</groupId>
             <artifactId>langchain4j</artifactId>
             <version>0.31.0</version>
         </dependency>
-        <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-mailer</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>io.quarkiverse.mailpit</groupId>
             <artifactId>quarkus-mailpit</artifactId>
