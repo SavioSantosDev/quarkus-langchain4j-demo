@@ -10,6 +10,7 @@ import dev.langchain4j.model.chat.ChatLanguageModel;
 import dev.langchain4j.model.openai.OpenAiChatModelName;
 import dev.langchain4j.model.openai.OpenAiTokenizer;
 import dev.langchain4j.model.output.Response;
+import io.quarkus.logging.Log;
 import jakarta.enterprise.context.ApplicationScoped;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -40,7 +41,7 @@ public class ChatComponent {
         final Response<AiMessage> response = model.generate(chatMemory.messages());
         chatMemory.add(response.content());
 
-        System.out.println("[Quantidade de tokens atual]: " + tokenizer.estimateTokenCountInMessages(chatMemory.messages()) + System.lineSeparator());
+        Log.info("[Quantidade de tokens atual]: " + tokenizer.estimateTokenCountInMessages(chatMemory.messages()));
 
         return response.content().text();
     }
