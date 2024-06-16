@@ -1,5 +1,6 @@
 package org.acme.domain.chat;
 
+import dev.langchain4j.chain.ConversationalChain;
 import dev.langchain4j.data.message.AiMessage;
 import dev.langchain4j.data.message.UserMessage;
 import dev.langchain4j.memory.ChatMemory;
@@ -20,12 +21,16 @@ public class ChatComponent {
     private final ChatMemory chatMemory = TokenWindowChatMemory.withMaxTokens(1000, tokenizer);
 
     private final ChatLanguageModel model;
+    private final ConversationalChain chain;
 
     @Autowired
     public ChatComponent(
             ChatLanguageModel model
     ) {
         this.model = model;
+        this.chain = ConversationalChain.builder()
+                .chatLanguageModel(model)
+                .build();
     }
 
     public String chat(String question) {
@@ -38,5 +43,9 @@ public class ChatComponent {
         System.out.println("[Quantidade de tokens atual]: " + tokenizer.estimateTokenCountInMessages(chatMemory.messages()) + System.lineSeparator());
 
         return response.content().text();
+    }
+
+    public String chat2(String question) {
+        return chain.execute(question);
     }
 }

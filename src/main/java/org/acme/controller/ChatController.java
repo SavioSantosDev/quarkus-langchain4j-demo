@@ -34,4 +34,9 @@ public class ChatController {
     public String chatWithMemory(@RequestParam(name = "question") String question) {
         return chatComponent.chat(question);
     }
+
+    @GetMapping("/with-conversational-chain")
+    public String chatWithConversationalChain(@RequestParam(name = "question") String question) {
+        return chatComponent.chat(question);
+    }
 }
